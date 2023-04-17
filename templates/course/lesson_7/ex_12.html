@@ -1,0 +1,45 @@
+{% extends "/base.html" %}
+{% block title %}Удалить элемент{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 7. Списки. Задача "Удалить элемент"</h1>
+            <hr>
+			 <p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+			    <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Дан список из чисел и индекс элемента в списке k. Удалите из списка элемент с индексом k, сдвинув влево все элементы, стоящие правее элемента с индексом k.
+				Программа сдвигает все элементы, а после этого удаляет последний элемент списка при помощи метода pop() без параметров. Программа должна осуществлять сдвиг непосредственно в списке,
+				а не делать это при выводе элементов. Также нельзя использовать дополнительный список. Также не следует использовать метод pop(k) с параметром.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат ввода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Программа получает на вход список целых чисел, число индекса k.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат вывода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Выведите ответ на задачу.</span>
+            </p>
+            <hr>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+
+
+
+
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

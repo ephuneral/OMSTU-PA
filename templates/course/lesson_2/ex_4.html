@@ -1,0 +1,46 @@
+{% extends "/base.html" %}
+{% block title %}Шахматная доска{% endblock %}
+{% block body %}
+ <div>
+        <div class="page">
+            <h1>Урок 2. Условный оператор. Задача "Шахматная доска"</h1>
+            <hr>
+            <p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Заданы две клетки шахматной доски. Если они покрашены в один цвет, то выведите слово YES, а если в разные цвета — то NO. </span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат ввода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Программа получает на вход четыре числа от 1 до 8 каждое, задающие номер столбца и номер строки сначала для первой клетки, потом для второй клетки.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат вывода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Выведите ответ на задачу.</span>
+            </p>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+
+
+
+
+
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+         

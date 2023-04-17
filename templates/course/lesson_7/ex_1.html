@@ -1,0 +1,136 @@
+{% extends "/base.html" %}
+{% block title %}Списки{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 7. Списки</h1>
+            <h2>1. Списки</h2>
+			<p>Большинство программ работает не с отдельными переменными, а с набором переменных.
+			Например, программа может обрабатывать информацию об учащихся класса, считывая список учащихся с клавиатуры или из файла,
+			при этом изменение количества учащихся в классе не должно требовать модификации исходного кода программы.</p>
+			<p> Раньше мы сталкивались с задачей обработки элементов последовательности, например, вычисляя наибольший элемент последовательности.
+			Но при этом мы не сохраняли всю последовательность в памяти компьютера.
+			Однако, во многих задачах нужно именно сохранять всю последовательность, например,
+			если бы нам требовалось вывести все элементы последовательности в возрастающем порядке (“отсортировать последовательность”).</p>
+			<p> Для хранения таких данных можно использовать структуру данных,
+			называемую в Питоне список (в большинстве же языков программирования используется другой термин “массив”).
+			Список представляет собой последовательность элементов, пронумерованных от 0, как символы в строке.
+			Список можно задать перечислением элементов списка в квадратных скобках, например, список можно задать так:</p>
+			<iframe src="https://trinket.io/embed/python/4613cb5f71" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В списке <code style = "color:#22A10A">Primes</code> — 6 элементов, а именно:
+			<code style = "color:#22A10A">Primes[0] == 2</code>, <code style = "color:#22A10A">Primes[1] == 3</code>, <code style = "color:#22A10A">Primes[2] == 5</code>,
+			<code style = "color:#22A10A">Primes[3] == 7</code>, <code style = "color:#22A10A">Primes[4] == 11</code>, <code style = "color:#22A10A">Primes[5] == 13</code>.
+			Список <code style = "color:#22A10A">Rainbow</code> состоит из 7 элементов, каждый из которых является строкой.</p>
+			<p>Также как и символы в строке, элементы списка можно индексировать отрицательными числами с конца, например,
+			<code style = "color:#22A10A">Primes[-1] == 13</code>, <code style = "color:#22A10A">Primes[-6] == 2</code>.</p>
+			<p>Длину списка, то есть количество элементов в нем, можно узнать при помощи функции len, например, <code style = "color:#22A10A">len(Primes) == 6</code>.<p>
+			</p> В отличие от строк, элементы списка можно изменять, присваивая им новые значения.</p>
+			<iframe src="https://trinket.io/embed/python/e2f24b3d80" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Рассмотрим несколько способов создания и считывания списков. Прежде всего,
+			можно создать пустой список (не содержащий элементов, длины 0), а в конец списка можно добавлять элементы
+			при помощи метода append. Например, пусть программа получает на вход количество элементов в списке n,
+			а потом n элементов списка по одному в отдельной строке. Вот пример входных данных в таком формате:</p>
+			<iframe src="https://trinket.io/embed/python/33bcba5538" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом случае организовать считывание списка можно так:</p>
+			<iframe src="https://trinket.io/embed/python/0f564ac108" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом примере создается пустой список, далее считывается количество элементов в списке,
+			затем по одному считываются элементы списка и добавляются в его конец. То же самое можно записать, сэкономив переменную n:</p>
+			<iframe src="https://trinket.io/embed/python/a7384ae091" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Для списков целиком определены следующие операции: конкатенация списков (сложение списков, т. е. приписывание к одному списку другого)
+			и повторение списков (умножение списка на число). Например:</p>
+			<iframe src="https://trinket.io/embed/python/4eca2e6298" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В результате список c будет равен <code style = "color:#22A10A">[1, 2, 3, 4, 5]</code>, а список <code style = "color:#22A10A">d</code> будет равен <code style = "color:#22A10A">[4, 5, 4, 5, 4, 5]</code>.
+			Это позволяет по-другому организовать процесс считывания списков: сначала считать размер списка и создать
+			список из нужного числа элементов, затем организовать цикл по переменной <code style = "color:#22A10A">i</code> начиная с числа 0 и внутри цикла считывается <code style = "color:#22A10A">i</code>-й элемент списка:</p>
+			<iframe src="https://trinket.io/embed/python/6b8bc9f298" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Вывести элементы списка <code style = "color:#22A10A">a</code> можно одной инструкцией <code style = "color:#22A10A">print(a)</code>, при этом будут выведены квадратные скобки вокруг элементов списка
+			и запятые между элементами списка. Такой вывод неудобен, чаще требуется просто вывести все элементы списка в одну строку или по одному элементу в строке.
+			Приведем два примера, также отличающиеся организацией цикла:</p>
+			<iframe src="https://trinket.io/embed/python/bff817b2cc" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Здесь в цикле меняется индекс элемента <code style = "color:#22A10A">i</code>, затем выводится элемент списка с индексом <code style = "color:#22A10A">i</code>.</p>
+			<iframe src="https://trinket.io/embed/python/6d51738aeb" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом примере элементы списка выводятся в одну строку, разделенные пробелом,
+			при этом в цикле меняется не индекс элемента списка, а само значение переменной
+			(например, в цикле <code style = "color:#22A10A">for elem in ['red', 'green', 'blue']</code> переменная <code style = "color:#22A10A">elem</code> будет
+			последовательно принимать значения <code style = "color:#22A10A">'red'</code>, <code style = "color:#22A10A">'green'</code>, <code style = "color:#22A10A">'blue'</code>.</p>
+			<p>Обратите особое внимание на последний пример! Очень важная часть идеологии Питона — это цикл <code style = "color:#22A10A">for</code>, который предоставляет удобный
+			способ перебрать все элементы некоторой последовательности. В этом отличие Питона от Паскаля, где вам обязательно надо
+			перебирать именно индексы элементов, а не сами элементы.</p>
+			<p> Последовательностями в Питоне являются строки, списки, значения функции range() (это не списки), и ещё кое-какие другие объекты.</p>
+			<p> Приведем пример, демонстрирующий использование цикла <code style = "color:#22A10A">for</code> в ситуации, когда из строки надо выбрать все цифры и сложить их в массив как числа.</p>
+			<iframe src="https://trinket.io/embed/python/7552e999ff" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>2. Методы split и join</h2>
+			<p>Элементы списка могут вводиться по одному в строке, в этом случае строку целиком можно считать функцией <code style = "color:#22A10A">input()</code>.
+			После этого можно использовать метод строки <code style = "color:#22A10A">split()</code>, возвращающий список строк, которые получатся,
+			если исходную строку разрезать на части по пробелам. Пример:</p>
+			<iframe src="https://trinket.io/embed/python/e152dab8d0" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Если при запуске этой программы ввести строку <code style = "color:#22A10A">1 2 3</code>, то список a будет равен <code style = "color:#22A10A">['1', '2', '3']</code>. Обратите внимание,
+			что список будет состоять из строк, а не из чисел. Если хочется получить список именно из чисел,
+			то можно затем элементы списка по одному преобразовать в числа:</p>
+			<iframe src="https://trinket.io/embed/python/7ca647bc22" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Используя специальную магию Питона — генераторы — то же самое можно сделать в одну строку:</p>
+			<iframe src="https://trinket.io/embed/python/b32fa06178" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Объяснение того, как работает этот код, будет дано в следующем разделе.
+			Если нужно считать список действительных чисел, то нужно заменить тип <code style = "color:#22A10A">int</code> на тип <code style = "color:#22A10A">float</code>.</p>
+			<p> У метода <code style = "color:#22A10A">split()</code> есть необязательный параметр, который определяет,
+			какая строка будет использоваться в качестве разделителя между элементами списка. Например, вызов метода <code style = "color:#22A10A">split('.')</code> вернет список,
+			полученный разрезанием исходной строки по символам <code style = "color:#22A10A">'.'</code>:</p>
+			<iframe src="https://trinket.io/embed/python/2f2f90dc3a" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В Питоне можно вывести список строк при помощи однострочной команды.
+			Для этого используется метод строки <code style = "color:#22A10A">join</code>. У этого метода один параметр:
+			список строк. В результате возвращается строка, полученная соединением
+			элементов переданного списка в одну строку, при этом между элементами
+			списка вставляется разделитель, равный той строке, к которой применяется метод.
+			Мы знаем, что вы не поняли предыдущее предложение с первого раза. Поэтому смотрите примеры:</p>
+			<iframe src="https://trinket.io/embed/python/c2e1b2c88a" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Если же список состоит из чисел, то придется использовать еще тёмную магию генераторов.
+			Вывести элементы списка чисел, разделяя их пробелами, можно так:</p>
+			<iframe src="https://trinket.io/embed/python/4f3ded210c" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Впрочем, если вы не любитель тёмной магии, то вы можете достичь того же эффекта, используя цикл <code style = "color:#22A10A">for</code>.</p>
+			<h2>3. Генераторы списков</h2>
+			<p>Для создания списка, заполненного одинаковыми элементами, можно использовать оператор повторения списка, например:</p>
+			<iframe src="https://trinket.io/embed/python/8c3e581565" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Для создания списков, заполненных по более сложным формулам можно использовать генераторы: выражения,
+			позволяющие заполнить список некоторой формулой. Общий вид генератора следующий:</p>
+			<iframe src="https://trinket.io/embed/python/b5e629a058" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>где <code style = "color:#22A10A">переменная</code> — идентификатор некоторой переменной, <code style = "color:#22A10A">последовательность</code> — последовательность значений,
+			который принимает данная переменная (это может быть список, строка или объект, полученный при помощи функции <code style = "color:#22A10A">range</code>),
+			<code style = "color:#22A10A">выражение</code> — некоторое выражение, как правило, зависящее от использованной в генераторе переменной, которым будут заполнены элементы списка.</p>
+			<p> Вот несколько примеров использования генераторов.<p>
+			</p> Создать список, состоящий из <code style = "color:#22A10A">n</code> нулей можно и при помощи генератора:</p>
+			<iframe src="https://trinket.io/embed/python/3101a98c0b" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Создать список, заполненный квадратами целых чисел можно так:</p>
+			<iframe src="https://trinket.io/embed/python/9cd555573b" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Если нужно заполнить список квадратами чисел от 1 до n, то можно изменить параметры функции <code style = "color:#22A10A">range</code> на <code style = "color:#22A10A">range(1, n + 1)</code>:</p>
+			<iframe src="https://trinket.io/embed/python/430782f2ca" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Вот так можно получить список, заполненный случайными числами от 1 до 9 (используя функцию <code style = "color:#22A10A">randrange</code> из модуля <code style = "color:#22A10A">random</code>):</p>
+			<iframe src="https://trinket.io/embed/python/0b75c3d500" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>А в этом примере список будет состоять из строк, считанных со стандартного ввода: сначала нужно ввести число элементов
+			списка (это значение будет использовано в качестве аргумента функции <code style = "color:#22A10A">range</code>), потом — заданное количество строк:</p>
+			<iframe src="https://trinket.io/embed/python/c262af77b5" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>4. Срезы</h2>
+			<p>Со списками, так же как и со строками, можно делать срезы. А именно:</p>
+			<p> <code style = "color:#22A10A">A[i:j]</code> срез из <code style = "color:#22A10A">j-i</code> элементов <code style = "color:#22A10A">A[i]</code>, <code style = "color:#22A10A">A[i+1]</code>, ..., <code style = "color:#22A10A">A[j-1]</code>.</p>
+			<p> <code style = "color:#22A10A">A[i:j:-1]</code> срез из <code style = "color:#22A10A">i-j</code> элементов <code style = "color:#22A10A">A[i]</code>, <code style = "color:#22A10A">A[i-1]</code>, ..., <code style = "color:#22A10A">A[j+1]</code> (то есть меняется порядок элементов).</p>
+			<p> <code style = "color:#22A10A">A[i:j:k]</code> срез с шагом <code style = "color:#22A10A">k</code>: <code style = "color:#22A10A">A[i]</code>, <code style = "color:#22A10A">A[i+k]</code>, <code style = "color:#22A10A">A[i+2*k]</code>,... . Если значение <code style = "color:#22A10A">k</code><0, то элементы идут в противоположном порядке.</p>
+			<p> Каждое из чисел <code style = "color:#22A10A">i</code> или <code style = "color:#22A10A">j</code> может отсутствовать, что означает “начало строки” или “конец строки”</p>
+			<p> Списки, в отличии от строк, являются изменяемыми объектами: можно отдельному элементу списка присвоить новое значение. Но можно менять и целиком срезы. Например:</p>
+			<iframe src="https://trinket.io/embed/python/f66f3f9bbf" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Получится список, у которого вместо двух элементов среза <code style = "color:#22A10A">A[2:4]</code> вставлен новый список уже из трех элементов. Теперь список стал равен <code style = "color:#22A10A">[1, 2, 7, 8, 9, 5]</code>.</p>
+			<iframe src="https://trinket.io/embed/python/6452db1512" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Получится список <code style = "color:#22A10A">[40, 2, 30, 4, 20, 6, 10]</code>. Здесь <code style = "color:#22A10A">A[::-2]</code> — это список из элементов <code style = "color:#22A10A">A[-1]</code>, <code style = "color:#22A10A">A[-3]</code>, <code style = "color:#22A10A">A[-5]</code>, <code style = "color:#22A10A">A[-7]</code>,
+			которым присваиваются значения 10, 20, 30, 40 соответственно.</p>
+			<p> Если не непрерывному срезу (то есть срезу с шагом <code style = "color:#22A10A">k</code>, отличному от 1), присвоить новое значение,
+			то количество элементов в старом и новом срезе обязательно должно совпадать, в противном случае произойдет ошибка <code style = "color:#22A10A">ValueError</code>.</p>
+			<p> Обратите внимание, <code style = "color:#22A10A">A[i]</code> — это элемент списка, а не срез!</p>
+			<h2>Операции со списками</h2>
+			<p>Со списками можно легко делать много разных операций.</p>
+			<p> x in A Проверить, содержится ли элемент в списке. Возвращает True или False</p>
+			<p> x not in A То же самое, что not(x in A)</p>
+			<p> min(A) Наименьший элемент списка</p>
+			<p> max(A) Наибольший элемент списка </p>
+			<p>A.index(x) Индекс первого вхождения элемента x в список, при его отсутствии генерирует исключение ValueError </p>
+			<p>A.count(x) Количество вхождений элемента x в список</p>
+        </div>
+    </div>
+{% endblock %}

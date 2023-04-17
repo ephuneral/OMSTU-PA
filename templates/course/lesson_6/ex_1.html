@@ -1,0 +1,69 @@
+{% extends "/base.html" %}
+{% block title %}Цикл While{% endblock %}
+{% block body %}
+   <div class="page">
+            <h1>Урок 6. Цикл while</h1>
+            <h2>1. Цикл while</h2>
+			<p>Цикл <code style = "color:#22A10A">while</code> (“пока”) позволяет выполнить одну и ту же последовательность действий, пока проверяемое условие истинно.
+			Условие записывается до тела цикла и проверяется до выполнения тела цикла.
+			Как правило, цикл <code style = "color:#22A10A">while</code> используется, когда невозможно определить точное значение количества проходов исполнения цикла.</p>
+			<p> Синтаксис цикла <code style = "color:#22A10A">while</code> в простейшем случае выглядит так:</p>
+			<iframe src="https://trinket.io/embed/python/9e008996e5" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>При выполнении цикла <code style = "color:#22A10A">while</code> сначала проверяется условие. Если оно ложно, то выполнение цикла прекращается и управление
+			передается на следующую инструкцию после тела цикла <code style = "color:#22A10A">while</code>.
+			Если условие истинно, то выполняется инструкция, после чего условие проверяется снова и снова выполняется инструкция.
+			Так продолжается до тех пор, пока условие будет истинно. Как только условие станет ложно, работа цикла завершится и управление передастся следующей инструкции после цикла.</p>
+			<p> Например, следующий фрагмент программы напечатает на экран квадраты всех целых чисел от 1 до 10. Видно, что цикл <code style = "color:#22A10A">while</code> может заменять цикл <code style = "color:#22A10A">for ... in range(...)</code>:</p>
+			<iframe src="https://trinket.io/embed/python/28edb63664" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом примере переменная <code style = "color:#22A10A">i</code> внутри цикла изменяется от 1 до 10. Такая переменная, значение которой меняется с каждым новым проходом цикла, называется счетчиком.
+			Заметим, что после выполнения этого фрагмента значение переменной <code style = "color:#22A10A">i</code> будет равно <code style = "color:#22A10A">11</code>, поскольку именно при <code style = "color:#22A10A">i == 11</code> условие <code style = "color:#22A10A">i <= 10</code> впервые перестанет выполняться.</p>
+			<p> Вот еще один пример использования цикла while для определения количества цифр натурального числа <code style = "color:#22A10A">n</code>:</p>
+			<iframe src="https://trinket.io/embed/python/41bb19a13e" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом цикле мы отбрасываем по одной цифре числа, начиная с конца, что эквивалентно целочисленному делению на 10 <code style = "color:#22A10A">(n //= 10)</code>,
+			при этом считаем в переменной <code style = "color:#22A10A">length</code>, сколько раз это было сделано.</p>
+			<p> В языке Питон есть и другой способ решения этой задачи: <code style = "color:#22A10A">length = len(str(i))</code>.</p>
+			<h2>2. Инструкции управления циклом</h2>
+			<p>После тела цикла можно написать слово <code style = "color:#22A10A">else</code>: и после него блок операций, который будет выполнен один раз после окончания цикла, когда проверяемое условие станет неверно:</p>
+			<iframe src="https://trinket.io/embed/python/a6eadd7123" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Казалось бы, никакого смысла в этом нет, ведь эту же инструкцию можно просто написать после окончания цикла.
+			Смысл появляется только вместе с инструкцией <code style = "color:#22A10A">break</code>. Если во время выполнения Питон встречает инструкцию <code style = "color:#22A10A">break</code> внутри цикла,
+			то он сразу же прекращает выполнение этого цикла и выходит из него. При этом ветка else исполняться не будет.
+			Разумеется, инструкцию break осмыленно вызывать только внутри инструкции <code style = "color:#22A10A">if</code>, то есть она должна выполняться только при выполнении какого-то особенного условия.</p>
+			<p> Приведем пример программы, которая считывает числа до тех пор, пока не встретит отрицательное число.
+			При появлении отрицательного числа программа завершается. В первом варианте последовательность чисел завершается числом 0 (при считывании которого надо остановиться).</p>
+			<iframe src="https://trinket.io/embed/python/b1a9202a10" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Во втором варианте программы сначала на вход подается количество элементов последовательности, а затем и сами элементы.
+			В таком случае удобно воспользоваться циклом <code style = "color:#22A10A">for</code>.
+			Цикл <code style = "color:#22A10A">for</code> также может иметь ветку <code style = "color:#22A10A">else</code> и содержать инструкции <code style = "color:#22A10A">break</code> внутри себя.</p>
+			<iframe src="https://trinket.io/embed/python/8f77b0d889" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Другая инструкция управления циклом — <code style = "color:#22A10A">continue</code> (продолжение цикла). Если эта инструкция встречается где-то посередине цикла,
+			то пропускаются все оставшиеся инструкции до конца цикла, и исполнение цикла продолжается со следующей итерации.</p>
+			<p class="background-p">Если инструкции <code style = "color:#22A10A">break</code> и <code style = "color:#22A10A">continue</code> содержатся внутри нескольких вложенных циклов, то они влияют лишь на исполнение самого внутреннего цикла.
+			Вот не самый интеллектуальный пример, который это демонстрирует:
+			<iframe src="https://trinket.io/embed/python/8ca5985c45" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			</p>
+			<p>
+				Увлечение инструкциями break и continue не поощряется, если можно обойтись без их использования. Вот типичный пример плохого использования инструкции break (данный код считает количество знаков в числе).
+			</p>
+			<iframe src="https://trinket.io/embed/python/9f00f40740" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Гораздо лучше переписать этот цикл так:</p>
+			<iframe src="https://trinket.io/embed/python/3f4e6f9e76" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Впрочем, на Питоне можно предложить и более изящное решение:</p>
+			<iframe src="https://trinket.io/embed/python/1763be9253" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>3. Множественное присваивание</h2>
+			<p>В Питоне можно за одну инструкцию присваивания изменять значение сразу нескольких переменных. Делается это так:</p>
+			<iframe src="https://trinket.io/embed/python/feced65ea2" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>
+				Этот код можно записать и так:
+			</p>
+			<iframe src="https://trinket.io/embed/python/a451fdc08b" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Если вызвать метод find с тремя параметрами S.find(T, a, b), то поиск будет осуществляться в срезе S[a:b]. Если указать только два параметра S.find(T, a),
+			то поиск будет осуществляться в срезе S[a:], то есть начиная с символа с индексом a и до конца строки. Метод S.find(T, a, b)
+			возращает индекс в строке S, а не индекс относительно среза.</p>
+			<p> Множественное присваивание удобно использовать, когда нужно обменять значения двух переменных.
+			В обычных языках программирования без использования специальных функций это делается так:</p>
+			<iframe src="https://trinket.io/embed/python/31b1e3027c" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В Питоне то же действие записывается в одну строчку:</p>
+			<iframe src="https://trinket.io/embed/python/3861ce7cd1" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+        </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "/base.html" %}
+{% block title %}Часы - 3{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 3. Вычисления. Задача "Часы - 3"</h1>
+			<hr>
+            <p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+			    <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">С начала суток часовая стрелка повернулась на угол в α градусов. Определите сколько полных часов, минут и секунд прошло с начала суток,
+				то есть решите задачу, обратную задаче «Часы - 1». Запишите ответ в три переменные и выведите их на экран.</span>
+            </p>
+			<hr>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}

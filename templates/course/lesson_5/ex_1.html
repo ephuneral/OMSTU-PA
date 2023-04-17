@@ -1,0 +1,70 @@
+{% extends "/base.html" %}
+{% block title %}Строки{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 5. Строки</h1>
+            <h2>1. Строки</h2>
+			<p>Строка считывается со стандартного ввода функцией <code style = "color:#22A10A">input()</code>. Напомним, что для двух строк определена операция сложения (конкатенации), также определена операция умножения строки на число.</p>
+			<p> Строка состоит из последовательности символов. Узнать количество символов (длину строки) можно при помощи функции <code style = "color:#22A10A">len</code>.</p>
+			<p> Любой другой объект в Питоне можно перевести к строке, которая ему соответствует. Для этого нужно вызвать функцию <code style = "color:#22A10A">str()</code>, передав ей в качестве параметра объект, переводимый в строку.</p>
+			<p class="background-p">На самом деле каждая строка, с точки зрения Питона, — это объект класса str.
+			Чтобы получить по объекту другой объект другого класса, как-то ему соответствующий, можно использовать функцию приведения.
+			Имя этой функции совпадает с именем класса, к которому мы приводим объект. (Для знатоков: эта функция — это конструктор объектов данного класса.)
+			Пример: int — класс для целых чисел. Перевод строки в число осуществляется функцией <code style = "color:#22A10A">int()</code>.</p>
+			<iframe src="https://trinket.io/embed/python/04ccaf81a7" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>2. Срезы (slices)</h2>
+			<p>Срез (slice) — извлечение из данной строки одного символа или некоторого фрагмента подстроки или подпоследовательности.</p>
+			<p> Есть три формы срезов. Самая простая форма среза: взятие одного символа строки, а именно, S[i] — это срез, состоящий из одного символа, который имеет номер i.
+			При этом считается, что нумерация начинается с числа 0. То есть если <code style = "color:#22A10A">S = 'Hello'</code>, то <code style = "color:#22A10A">S[0] == 'H'</code>, <code style = "color:#22A10A">S[1] == 'e'</code>, <code style = "color:#22A10A">S[2] == 'l'</code>, <code style = "color:#22A10A">S[3] == 'l'</code>, <code style = "color:#22A10A">S[4] == 'o'</code>.</p>
+			<p class="background-p">Заметим, что в Питоне нет отдельного типа для символов строки. Каждый объект, который получается в результате среза <code style = "color:#22A10A">S[i]</code> — это тоже строка типа str.</p>
+			<p>Номера символов в строке (а также в других структурах данных: списках, кортежах) называются индексом.</p>
+			<p> Если указать отрицательное значение индекса, то номер будет отсчитываться с конца, начиная с номера -1. То есть <code style = "color:#22A10A">S[-1] == 'o'</code>, <code style = "color:#22A10A">S[-2] == 'l'</code>, <code style = "color:#22A10A">S[-3] == 'l'</code>, <code style = "color:#22A10A">S[-4] == 'e'</code>, <code style = "color:#22A10A">S[-5] == 'H'</code>.</p>
+			<p> Если же номер символа в срезе строки <code style = "color:#22A10A">S</code> больше либо равен <code style = "color:#22A10A">len(S)</code>, или меньше, чем <code style = "color:#22A10A">-len(S)</code>, то при обращении к этому символу строки произойдет ошибка <code style = "color:#22A10A">IndexError: string index out of range</code>.</p>
+			<p> Срез с двумя параметрами: <code style = "color:#22A10A">S[a:b]</code> возвращает подстроку из <code style = "color:#22A10A">b - a</code> символов, начиная с символа c индексом <code style = "color:#22A10A">a</code>,
+			то есть до символа с индексом <code style = "color:#22A10A">b</code>, не включая его. Например, <code style = "color:#22A10A">S[1:4] == 'ell'</code>, то же самое получится если написать <code style = "color:#22A10A">S[-4:-1]</code>.
+			Можно использовать как положительные, так и отрицательные индексы в одном срезе, например, <code style = "color:#22A10A">S[1:-1]</code> — это строка без первого и последнего символа
+			(срез начинается с символа с индексом 1 и заканчиватеся индексом -1, не включая его).</p>
+			<p> При использовании такой формы среза ошибки <code style = "color:#22A10A">IndexError</code> никогда не возникает.
+			Например, срез <code style = "color:#22A10A">S[1:5]</code> вернет строку <code style = "color:#22A10A">'ello'</code>, таким же будет результат, если сделать второй индекс очень большим, например, <code style = "color:#22A10A">S[1:100]</code> (если в строке не более 100 символов).</p>
+			<p>Если опустить второй параметр (но поставить двоеточие), то срез берется до конца строки. Например, чтобы удалить из строки первый символ (его индекс равен 0), можно взять срез <code style = "color:#22A10A">S[1:]</code>.
+			Аналогично если опустить первый параметр, то можно взять срез от начала строки. То есть удалить из строки последний символ можно при помощи среза <code style = "color:#22A10A">S[:-1]</code>.
+			Срез <code style = "color:#22A10A">S[:]</code> совпадает с самой строкой <code style = "color:#22A10A">S</code>.</p>
+			<p class="background-p">Любые операции среза со строкой создают новые строки и никогда не меняют исходную строку. В Питоне строки вообще являются неизменяемыми, их невозможно изменить.
+			Можно лишь в старую переменную присвоить новую строку.
+            <br><br>
+            На самом деле в питоне нет и переменных. Есть лишь имена, которые связаны с какими-нибудь объектами. Можно сначала связать имя с одним объектом, а потом — с другим.
+			Можно несколько имён связать с одним и тем же объектом.</p>
+			<p>Если задать срез с тремя параметрами <code style = "color:#22A10A">S[a:b:d]</code>, то третий параметр задает шаг, как в случае с функцией range, то есть будут взяты символы с индексами
+			<code style = "color:#22A10A">a</code>, <code style = "color:#22A10A">a + d</code>, <code style = "color:#22A10A">a + 2 * d</code> и т. д. При задании значения третьего параметра, равному 2, в срез попадет кажый второй символ, а если взять значение среза, равное -1,
+			то символы будут идти в обратном порядке. Например, можно перевернуть строку срезом <code style = "color:#22A10A">S[::-1]</code>.</p>
+			<iframe src="https://trinket.io/embed/python/e5c5cc043e" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p class="background-p">
+                Обратите внимание на то, как похож третий параметр среза на третий параметр функции range():
+                <iframe src="https://trinket.io/embed/python/619a7fba98" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+            </p>
+            <h2>3. Методы</h2>
+			<p>Метод — это функция, применяемая к объекту, в данном случае — к строке.
+			Метод вызывается в виде <code style = "color:#22A10A">Имя_объекта.Имя_метода(параметры)</code>. Например, <code style = "color:#22A10A">S.find("e")</code> — это применение к строке <code style = "color:#22A10A">S</code> метода<code style = "color:#22A10A">find</code>  с одним параметром <code style = "color:#22A10A">"e"</code>.</p>
+			<h2>3.1. Методы find и rfind</h2>
+			<p>Метод <code style = "color:#22A10A">find</code> находит в данной строке (к которой применяется метод) данную подстроку (которая передается в качестве параметра).
+			Функция возвращает индекс первого вхождения искомой подстроки. Если же подстрока не найдена, то метод возвращает значение -1.</p>
+			<iframe src="https://trinket.io/embed/python/147aeea263" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Аналогично, метод <code style = "color:#22A10A">rfind</code> возвращает индекс последнего вхождения данной строки (“поиск справа”).</p>
+			<iframe src="https://trinket.io/embed/python/966a5bd702" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Если вызвать метод <code style = "color:#22A10A">find</code> с тремя параметрами <code style = "color:#22A10A">S.find(T, a, b)</code>, то поиск будет осуществляться в срезе <code style = "color:#22A10A">S[a:b]</code>. Если указать только два параметра <code style = "color:#22A10A">S.find(T, a)</code>,
+			то поиск будет осуществляться в срезе <code style = "color:#22A10A">S[a:]</code>,
+			то есть начиная с символа с индексом a и до конца строки. Метод <code style = "color:#22A10A">S.find(T, a, b)</code> возращает индекс в строке <code style = "color:#22A10A">S</code>, а не индекс относительно среза.</p>
+			<h2>3.2. Метод replace</h2>
+			<p>Метод replace заменяет все вхождения одной строки на другую. Формат: <code style = "color:#22A10A">S.replace(old, new)</code> — заменить в строке <code style = "color:#22A10A">S</code> все вхождения подстроки <code style = "color:#22A10A">old</code> на подстроку <code style = "color:#22A10A">new</code>. Пример:</p>
+			<iframe src="https://trinket.io/embed/python/f108ed6e74" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Если методу <code style = "color:#22A10A">replace</code> задать еще один параметр: <code style = "color:#22A10A">S.replace(old, new, count)</code>, то заменены будут не все вхождения, а только не больше, чем первые <code style = "color:#22A10A">count</code> из них.</p>
+			<iframe src="https://trinket.io/embed/python/51da0c6a4b" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>3.3. Метод count</h2>
+			<p>Подсчитывает количество вхождений одной строки в другую строку. Простейшая форма вызова <code style = "color:#22A10A">S.count(T)</code> возвращает число вхождений строки <code style = "color:#22A10A">T</code> внутри строки <code style = "color:#22A10A">S</code> .
+			При этом подсчитываются только непересекающиеся вхождения, например:</p>
+            <iframe src="https://trinket.io/embed/python/c7f33e1767" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>При указании трех параметров <code style = "color:#22A10A">S.count(T, a, b)</code>, будет выполнен подсчет числа вхождений строки <code style = "color:#22A10A">T</code> в срезе <code style = "color:#22A10A">S[a:b]</code>.</p>
+        </div>
+    </div>
+{% endblock %}

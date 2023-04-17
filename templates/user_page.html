@@ -1,0 +1,32 @@
+{% extends "/base.html" %}
+{% block title %}Hi {{ current_user.username }}{% endblock %}
+{% block body %}
+
+    <a> Hi {{ current_user.username }} </a>
+    <form method="post" enctype="multipart/form-data">
+        <input type=file name=file>
+        <input type=submit value=Upload>
+    </form>
+
+    <a>тут скоро будет возможность смены аватарки</a>
+
+
+    <img class="rounded-circle account-img" src="{{ current_user.image_file }}">
+
+{% endblock %}
+{#        <div class="form-group">#}
+{#            {{ form.picture.label() }}#}
+{#            {{ form.picture(class="form-control-file") }}#}
+{#            {% if form.picture.errors %}#}
+{#                {% for error in form.picture.errors %}#}
+{#                    <span class="text-danger">{{ error }}</span></br>#}
+{#                {% endfor %}#}
+{#            {% endif %}#}
+{#        </div>#}
+
+{#        <div class="form-group">#}
+{#            {{ form.submit(class="btn btn-outline-info") }}#}
+{#        </div>#}
+{#        <img class="rounded-circle account-img" src="{{ image_file }}">#}
+{#       <p><input type="file" name="image_form" multiple accept="image/*">#}
+{#           <input type="submit" value="Отправить"></p>#}

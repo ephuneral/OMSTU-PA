@@ -1,0 +1,30 @@
+{% extends "/base.html" %}
+{% block title %}Конец уроков{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 3. Вычисления. Задача "Конец уроков"</h1>
+			<hr>
+            <p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+			    <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">В некоторой школе занятия начинаются в 9:00. Продолжительность урока — 45 минут, после 1-го, 3-го, 5-го и т.д.
+				уроков перемена 5 минут, а после 2-го, 4-го, 6-го и т.д. — 15 минут. Дан номер урока (число от 1 до 10). Определите, когда заканчивается указанный урок.</span>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;"><br>Выведите два целых числа: время окончания урока в часах и минутах.</span>
+            </p>
+			<hr>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}

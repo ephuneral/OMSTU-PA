@@ -1,0 +1,234 @@
+% extends "/base.html" %}
+{% block title %}Условия{% endblock %}
+{% block body %}
+<script type="text/javascript">
+		// output functions are configurable.  This one just appends some text
+		// to a pre element.
+		function outf(text) {
+			var mypre = document.getElementById("output");
+			mypre.innerHTML = mypre.innerHTML + text;
+		}
+		function builtinRead(x) {
+			if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+					throw "File not found: '" + x + "'";
+			return Sk.builtinFiles["files"][x];
+		}
+
+		// Here's everything you need to run a python program in skulpt
+		// grab the code from your textarea
+		// get a reference to your pre element for output
+		// configure the output function
+		// call Sk.importMainWithBody()
+		function runit() {
+		   var prog = document.getElementById("yourcode").value;
+		   var mypre = document.getElementById("output");
+		   mypre.innerHTML = '';
+		   Sk.pre = "output";
+		   Sk.configure({output:outf, read:builtinRead});
+		   (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+		   var myPromise = Sk.misceval.asyncToPromise(function() {
+			   return Sk.importMainWithBody("<stdin>", false, prog, true);
+		   });
+		   myPromise.then(function(mod) {
+			   console.log('success');
+		   },
+			   function(err) {
+			   console.log(err.toString());
+		   });
+		}
+
+
+		$(function() {
+		  $('textarea[data-editor]').each(function() {
+			var textarea = $(this);
+
+			var editDiv = $('<div>', {
+			  position: 'absolute',
+			  width: textarea.width(),
+			  height: textarea.height(),
+			  'class': textarea.attr('class')
+			}).insertBefore(textarea);
+			textarea.css('display', 'none');
+			var editor = ace.edit(editDiv[0]);
+			editor.renderer.setShowGutter(textarea.data('gutter'));
+			editor.getSession().setValue(textarea.val());
+			editor.setTheme("ace/theme/tomorrow_night");
+			editor.getSession().setMode("ace/mode/python");
+			editor.setShowPrintMargin(false);
+			editor.setOptions({maxLines: 10, fontSize:'20px',});
+			// editor.$blockScrolling = Infinity;
+			editor.setOptions({
+   			autoScrollEditorIntoView: true,
+    		copyWithEmptySelection: true,
+			});
+
+			// copy back to textarea on form submit...
+			editor.getSession().on('change', function(){
+			  textarea.val(editor.getSession().getValue());
+
+			})
+		  });
+		});
+	</script>
+    <div>
+        <div class="page">
+            <h1>Урок 2. Условия</h1>
+			<h2>1. Синтаксис условной инструкции</h2>
+            <p>
+				Все ранее рассматриваемые программы имели линейную структуру: все инструкции
+				выполнялись последовательно одна за одной, каждая записанная инструкция обязательно выполняется.
+			</p>
+			<br>
+			<p>
+				Допустим мы хотим по данному числу x определить его абсолютную величину (модуль). Программа должна напечатать значение переменной x,
+				если x>0 или же величину -x в противном случае. Линейная структура программы нарушается: в зависимости от справедливости условия x>0
+				должна быть выведена одна или другая величина.
+				Соответствующий фрагмент программы на Питоне имеет вид:
+			</p>
+
+			<iframe src="https://trinket.io/embed/python/83d16955df" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p>
+				В этой программе используется условная инструкция <code style = "color:#22A10A">if</code> (если). После слова <code style = "color:#22A10A">if</code> указывается проверяемое условие <code style = "color:#22A10A">(x > 0)</code>, завершающееся двоеточием.
+				После этого идет блок (последовательность) инструкций, который будет выполнен, если условие истинно, в нашем примере это вывод на экран величины <code style = "color:#22A10A">x</code>.
+				Затем идет слово <code style = "color:#22A10A">else</code> (иначе), также завершающееся двоеточием, и блок инструкций, который будет выполнен, если проверяемое условие неверно,
+				в данном случае будет выведено значение <code style = "color:#22A10A">-x</code>.
+			</p>
+			<p>
+				Итак, условная инструкция в Питоне имеет следующий синтаксис:
+			</p>
+			<p>if Условие:</p>
+			<p style="text-indent: 25px;"> Блок инструкций 1</p>
+			<p> else:</p>
+			<p style="text-indent: 25px;"> Блок инструкций 2</p>
+			<p>
+				Блок инструкций 1 будет выполнен, если Условие истинно. Если Условие ложно, будет выполнен Блок инструкций 2.
+			</p>
+			<p>
+				В условной инструкции может отсутствовать слово <code style = "color:#22A10A">else</code> и последующий блок. Такая инструкция называется неполным ветвлением.
+				Например, если дано число x и мы хотим заменить его на абсолютную величину <code style = "color:#22A10A">x</code>, то это
+ 				можно сделать следующим образом:
+			</p>
+
+			<iframe src="https://trinket.io/embed/python/d871b35184" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+			<p>
+				В этом примере переменной <code style = "color:#22A10A">x</code> будет присвоено значение <code style = "color:#22A10A">-x</code>, но только в том случае, когда x<0. А вот инструкция
+				<code style = "color:#22A10A">print(x)</code> будет выполнена всегда, независимо от проверяемого условия.
+			</p>
+			<br>
+			<p>
+				Для выделения блока инструкций, относящихся к инструкции <code style = "color:#22A10A">if</code> или <code style = "color:#22A10A">else</code> в языке Питон используются отступы.
+				Все инструкции, которые относятся к одному блоку, должны иметь равную величину отступа, то есть одинаковое число пробелов в начале строки.
+				Рекомендуется использовать отступ в 4 пробела и не рекомедуется использовать в качестве отступа символ табуляции.
+			</p>
+			<br>
+			<p>
+				Это одно из существенных отличий синтаксиса Питона от синтаксиса большинства языков,
+				в которых блоки выделяются специальными словами, например, <code style = "color:#22A10A">нц... кц</code> в Кумире, <code style ="color:#22A10A">begin... end</code> в Паскале или фигурными скобками в Си.
+			</p>
+			<h2>2. Вложенные условные инструкции</h2>
+			<p>
+				Внутри условных инструкций можно использовать любые инструкции языка Питон, в том числе и условную инструкцию.
+				Получаем вложенное ветвление – после одной развилки в ходе исполнения программы появляется другая развилка.
+				При этом вложенные блоки имеют больший размер отступа (например, 8 пробелов).
+				Покажем это на примере программы, которая по данным ненулевым числам x и y определяет, в какой из четвертей координатной плоскости 	находится точка (x,y):
+			</p>
+
+			<iframe src="https://trinket.io/embed/python/1b023a5a0d" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+			<p>
+				В этом примере мы использовали комментарии – текст, который интерпретатор игнорирует. Комментариями в
+				 Питоне является символ # и весь текст после этого символа до конца строки.
+			</p>
+			<h2>3. Операторы сравнения</h2>
+			<p>
+				Как правило, в качестве проверяемого условия используется результат вычисления одного из следующих
+				операторов сравнения:
+				<br>
+			<ul>
+				<li><code style = "color:#22A10A"><</code></li>
+					<li>Меньше — условие верно, если первый операнд меньше второго.</li>
+						<li><code style = "color:#22A10A">></code></li>
+							<li>Больше — условие верно, если первый операнд больше второго.</li>
+								<li><code style = "color:#22A10A"><=</code></li>
+									<li>Меньше или равно.</li>
+										<li><code style = "color:#22A10A">>=</code></li>
+											<li>Больше или равно.</li>
+												<li><code style = "color:#22A10A">==</code></li>
+													<li>Равенство. Условие верно, если два операнда равны.</li>
+														<li><code style = "color:#22A10A">!=</code></li>
+															<li>Неравенство. Условие верно, если два операнда неравны.</li>
+			</ul>
+			<p>
+				Например, условие <code style = "color:#22A10A">(x * x < 1000)</code> означает “значение <code style = "color:#22A10A">x * x</code> меньше 1000”, а условие <code style = "color:#22A10A">(2 * x != y)</code> означает “удвоенное значение переменной <code style = "color:#22A10A">x</code> не равно значению переменной <code style = "color:#22A10A">y</code>”.
+				Операторы сравнения в Питоне можно объединять в цепочки (в отличии от большинства других языков
+				программирования, где для этого нужно использовать логические связки), например, <code style = "color:#22A10A">a == b == c</code> или <code style = "color:#22A10A">1 <= x <= 10</code>.
+			</p>
+			<h2>4. Тип данных bool</h2>
+			<p>
+				Операторы сравнения возвращают значения специального логического типа <code style = "color:#22A10A">bool</code>. Значения логического типа
+				могут принимать одно из двух значений: <code style = "color:#22A10A">True</code> (истина) или <code style = "color:#22A10A">False</code> (ложь). Если преобразовать логическое <code style = "color:#22A10A">True</code> к
+				типу <code style = "color:#22A10A">int</code>, то получится 1, а преобразование <code style = "color:#22A10A">False</code> даст 0. При обратном преобразовании число 0 преобразуется в
+			 	<code style = "color:#22A10A">False</code>, а любое ненулевое число в <code style = "color:#22A10A">True</code>. При преобразовании <code style = "color:#22A10A">str</code> в <code style = "color:#22A10A">bool</code> пустая строка преобразовывается в <code style = "color:#22A10A">False</code>, а любая непустая строка в <code style = "color:#22A10A">True</code>.
+			</p>
+			<h2>4.1. Логические операторы</h2>
+			<p>
+				Иногда нужно проверить одновременно не одно, а несколько условий. Например, проверить, является ли данное
+				число четным можно при помощи условия <code style = "color:#22A10A">(n % 2 == 0)</code> (остаток от деления <code style = "color:#22A10A">n</code> на <code style = "color:#22A10A">2</code> равен <code style = "color:#22A10A">0</code>), а если необходимо
+			 	проверить, что два данных целых числа <code style = "color:#22A10A">n</code> и <code style = "color:#22A10A">m</code> являются четными, необходимо проверить справедливость обоих
+			 	условий: <code style = "color:#22A10A">n % 2 == 0</code> и <code style = "color:#22A10A">m % 2 == 0</code>, для чего их необходимо объединить при помощи оператора <code style = "color:#22A10A">and</code> (логическое И):
+			 	<code style = "color:#22A10A">n % 2 == 0 and m % 2 == 0</code>.
+			</p>
+			<br>
+			<p>
+				В Питоне существуют стандартные логические операторы: логическое И, логическое ИЛИ, логическое отрицание.
+			</p>
+			<br>
+			<p>
+				Логическое И является бинарным оператором (то есть оператором с двумя операндами: левым и правым) и имеет
+			 	вид <code style = "color:#22A10A">and</code>. Оператор <code style = "color:#22A10A">and</code> возвращает <code style = "color:#22A10A">True</code> тогда и только тогда, когда оба его операнда имеют значение <code style = "color:#22A10A">True</code>.
+			</p>
+			<br>
+			<p>
+				Логическое ИЛИ является бинарным оператором и возвращает <code style = "color:#22A10A">True</code> тогда и только тогда, когда хотя бы один операнд равен <code style = "color:#22A10A">True</code>. Оператор “логическое ИЛИ” имеет вид <code style = "color:#22A10A">or</code>.
+			</p>
+			<br>
+			<p>
+				Логическое НЕ (отрицание) является унарным (то есть с одним операндом) оператором и имеет вид <code style = "color:#22A10A">not</code>, за
+			 	которым следует единственный операнд. Логическое НЕ возвращает <code style = "color:#22A10A">True</code>, если операнд равен <code 	style = "color:#22A10A">False</code> и наоборот.
+			</p>
+			<br>
+			<p>
+				Пример. Проверим, что хотя бы одно из чисел a или b оканчивается на 0:
+			</p>
+
+			<iframe src="https://trinket.io/embed/python/a6aaf9d71e" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+			<p>
+				Проверим, что число a — положительное, а b — неотрицательное:
+			 	<code style = "color:#22A10A">if a > 0 and not (b < 0)</code>:
+				 Или можно вместо <code style = "color:#22A10A">not (b < 0)</code> записать <code style = "color:#22A10A">(b >= 0)</code>.
+			</p>
+			<h2>5. Каскадные условные инструкции</h2>
+			<p>
+				Пример программы, определяющий четверть координатной плоскости, можно переписать используя “каскадную“
+			 	последовательность операцией <code style = "color:#22A10A">if... elif... else</code>:
+			</p>
+
+			<iframe src="https://trinket.io/embed/python/3b99c6f36e" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+			<p>
+				В такой конструкции условия <code style = "color:#22A10A">if</code>, ..., <code style = "color:#22A10A">elif</code> проверяются по очереди, выполняется блок, соответствующий первому из
+			 	истинных условий. Если все проверяемые условия ложны, то выполняется блок <code style = "color:#22A10A">else</code>, если он 	присутствует.
+			</p>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+         

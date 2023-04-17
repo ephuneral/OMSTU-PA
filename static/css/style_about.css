@@ -1,0 +1,140 @@
+@media screen and (min-width: 900px) {
+    article {
+        display: flex;
+    }
+  }
+
+@font-face {
+    font-family: SF UI Display;
+    src: url(../fonts/SFUIDisplay-Regular.ttf);
+}
+
+@font-face {
+    font-family: Diamond Girl Skinny_С;
+    src: url(../fonts/Diamond-Girl.otf);
+}
+
+body {
+    margin:0%;
+    background: #FFFFFF;
+}
+
+header {
+    box-sizing: border-box;
+    width: 100%;
+    height: 72px;
+    margin: 0%;
+    background: #3E3E3E 0% 0% no-repeat padding-box;
+    border: 1px solid #3E3E3E;
+    opacity: 1;
+}
+
+a {
+    user-select: none;
+    text-decoration: none;
+    outline: none;
+}
+
+.header-text {
+    position: relative;
+    top: 5px;
+    left: 15px;
+    width: 237px;
+    height: 59px;
+
+    font: normal normal normal 49px/59px SF UI Display;
+    letter-spacing: 1.72px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.header-info {
+
+    margin-top: 17px;
+    margin-right: 35px;
+    text-align: left;
+    font: normal normal normal 30px/36px SF UI Display;
+    letter-spacing: -0.45px;
+    color: #FFFFFF;
+    opacity: 1;
+    float: right;
+    vertical-align: middle;
+}
+
+.header-img {
+    height: 29px;
+    opacity: 1;
+    vertical-align: middle;
+}
+
+.page-text {
+    font: normal normal normal 55px/65px SF UI Display;
+    text-align: left;
+    letter-spacing: 0px;
+    font-weight: bold;
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-left: 60px;
+}
+
+.page-text-about {
+    text-align: left;
+    margin-left: 90px;
+    font: normal normal normal 27px/33px SF UI Display;
+    width: 870px;
+    font-weight:normal;
+    margin-bottom: 0px;
+}
+
+div.page {
+    height:80vh;
+}
+
+.page-img {
+    height: 40px;
+    margin-left: 15px;
+}
+
+.role {
+    box-sizing: border-box;
+    margin-bottom: 0px; 
+    margin-left: 10px;
+    text-align: left;
+    font: normal normal normal 37px/45px SF UI Display;
+    font-weight: bold;
+}
+
+.work {
+    text-align: center;
+    font: normal normal normal 20px/24px SF UI Display;
+    letter-spacing: 0px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.name {
+    font: normal normal normal 45px/54px Diamond Girl Skinny_С;
+    letter-spacing: 0px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 0px;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    vertical-align: top;
+}
+
+td {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000000
+}
+
+.icons {
+    height: 50px;
+    width: 50px;
+    float: right;
+    margin-right: 5px;
+}

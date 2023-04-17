@@ -1,0 +1,39 @@
+{% extends "/base.html" %}
+{% block title %}МКАД{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 3. Вычисления. Задача "МКАД"</h1>
+            <hr>
+			<p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+			    <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Длина Московской кольцевой автомобильной дороги — 109 километров. Байкер Вася стартует с нулевого километра МКАД и едет со скоростью v километров в час. На какой отметке он остановится через t часов?</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат ввода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Программа получает на вход значение v и t. Если v>0, то Вася движется в положительном направлении по МКАД, если же значение v<0, то в отрицательном. (Гарантируется, что исходные числа — целые и находятся в промежутке от -1000 до +1000).</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат вывода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Программа должна вывести целое число от 0 до 108 — номер отметки, на которой остановится Вася.</span>
+            </p>
+            <hr>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}

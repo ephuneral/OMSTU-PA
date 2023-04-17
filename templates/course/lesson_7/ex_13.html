@@ -1,0 +1,45 @@
+{% extends "/base.html" %}
+{% block title %}Вставить элемент{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 7. Списки. Задача "Вставить элемент"</h1>
+            <hr>
+			 <p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+			    <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Дан список целых чисел, число k и значение C. Необходимо вставить в список на позицию с индексом k элемент, равный C, сдвинув все элементы, имевшие индекс не менее k, вправо.
+				Поскольку при этом количество элементов в списке увеличивается, после считывания списка в его конец нужно будет добавить новый элемент, используя метод append.
+				Вставку необходимо осуществлять уже в считанном списке, не делая этого при выводе и не создавая дополнительного списка.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат ввода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Программа получает на вход список целых чисел, число индекса k, целое число C.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат вывода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Выведите ответ на задачу.</span>
+            </p>
+            <hr>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+
+
+
+
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

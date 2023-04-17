@@ -1,0 +1,116 @@
+{% extends "/base.html" %}
+{% block title %}Операторы ввода и вывода{% endblock %}
+{% block body %}
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <div style="width: 100%;">
+        <div class="page">
+            <h1>Урок 1. Операторы ввода и вывода</h1>
+            <p>
+                Python 3 — это современный язык, на котором просто и приятно писать программы.
+                Для печати значений в Питоне есть функция <code style="color:#22A10A">print()</code>. Внутри круглых
+                скобок через запятую мы пишем то, что хотим
+                вывести. Вот программа, которая делает несколько вычислений:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/1587b556cf" width="100%" height="356" frameborder="0"
+                    marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p>
+                Для ввода данных в программу мы используем функцию <code style="color:#22A10A">input()</code>. Она
+                считывает одну строку.
+                Вот программа, которая считывает имя пользователя и приветствует его:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/a564baf611" width="100%" height="356" frameborder="0"
+                    marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p>
+                Мы будем писать программы, которые считывают данные, перерабатывают их и выводят какой-то результат. При
+                запуске на компьютере такие программы считывают данные, которые пользователь вводит с клавиатуры, а
+                результат выводят на экран.
+                Попробуем написать программу, которая считывает два числа и выводит их сумму. Для этого считаем два
+                числа и
+                сохраним их в переменные <code style="color:#22A10A">a</code> и <code style="color:#22A10A">b</code>,
+                пользуясь оператором присваивания <code style="color:#22A10A">=</code>. Слева от оператора присваивания
+                в
+                программах на Питоне ставится имя переменной — например, строка из латинских букв. Справа от оператора
+                присваивания ставится любое выражение. Имя станет указывать на результат вычисления выражения.
+                Проиграйте
+                эту программу и посмотрите на результаты её работы:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/c23fcca7b2" width="100%" height="356" frameborder="0"
+                    marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p>
+                Мы видим, что программа выводит <code style="color:#22A10A">57</code>, хотя в реальной жизни <code
+                    style="color:#22A10A">5 + 7</code> будет <code style="color:#22A10A">12</code>. Это произошло
+                потому, что Питон в
+                третьей строчке «сложил» две строки, а не два числа. В Питоне две строки складываются так: к первой
+                строке
+                приписывается вторая.
+                Обратите внимание, что в визуализаторе содержимое переменных a и b заключено в кавычки. Это означает,
+                что в
+                <code style="color:#22A10A">a</code> и <code style="color:#22A10A">b</code> лежат строки, а не числа.
+                В Питоне все данные называются объектами. Число 2 представляется объектом «число 2», строка <code
+                    style="color:#22A10A">'hello'</code> – это
+                объект «строка <code style="color:#22A10A">'hello'</code>».
+                Каждый объект относится к какому-то типу. Строки хранятся в объектах типа <code style="color:#22A10A">str</code>,
+                целые числа хранятся в объектах
+                типа <code style="color:#22A10A">int</code>, дробные числа (вещественные числа) — в объектах типа <code
+                    style="color:#22A10A">float</code>. Тип объекта определяет, какие действия
+                можно делать с объектами этого типа. Например, если в переменных <code
+                    style="color:#22A10A">first</code> и <code style="color:#22A10A">second</code> лежат объекты типа
+                <code style="color:#22A10A">int</code>, то их
+                можно перемножить, а если в них лежат объекты типа <code style="color:#22A10A">str</code>, то их
+                перемножить нельзя:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/6a4559e691" width="100%" height="356" frameborder="0"
+                    marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p>
+                Чтобы преобразовать строку из цифр в целое число, воспользуемся функцией <code style="color:#22A10A">int()</code>.
+                Например, <code style="color:#22A10A">int('23')</code> вернет
+                число <code style="color:#22A10A">23</code>.
+                Вот пример правильной программы, которая считывает два числа и выводит их сумму:
+            </p>
+
+            <!-- <iframe src="https://trinket.io/embed/python/ba1a142c7f" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe> -->
+
+
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor"
+                          data-editor="markdown" data-gutter="1" cols="90" rows="50" id="yourcode">print('Как вас зовут?')
+name = input()  # считываем строку и кладём её в переменную name
+print('Здравствуйте, ' + name + '!')
+                </textarea>
+                <button type="button" onclick="runit()">Run</button>
+            </div>
+            <div class="answer-compile">
+                <pre id="output"></pre>
+            </div>
+        </div>
+
+        <div style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor"
+             data-editor="markdown" data-gutter="1" cols="90" rows="50">
+            <py-script output="altair">
+                import datetime as dt
+                print('today', dt.date.today().strftime('%A %B %d, %Y'))
+            </py-script>
+        </div>
+
+
+        <py-box widths="2/3;1/3">
+            <py-repl id="my-repl" auto-generate=true></py-repl>
+            <div id="output" class="p-4"></div>
+        </py-box>
+
+
+    </div>
+{% endblock %}
+
+
+
+         

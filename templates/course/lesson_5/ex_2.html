@@ -1,0 +1,47 @@
+{% extends "/base.html" %}
+{% block title %}Делаем срезы{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 5. Строки. Задача "Делаем срезы"</h1>
+            <hr>
+			 <p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+			    <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Дана строка. Сначала выведите третий символ этой строки. Во второй строке выведите предпоследний символ этой строки.
+				В третьей строке выведите первые пять символов этой строки. В четвертой строке выведите всю строку, кроме последних двух символов.
+				В пятой строке выведите все символы с четными индексами (считая, что индексация начинается с 0, поэтому символы выводятся начиная с первого).
+				В шестой строке выведите все символы с нечетными индексами, то есть начиная со второго символа строки. В седьмой строке выведите все символы в обратном порядке.
+				В восьмой строке выведите все символы строки через один в обратном порядке, начиная с последнего. В девятой строке выведите длину данной строки.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат ввода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Программа получает на вход строку.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат вывода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Выведите ответ на задачу.</span>
+            </p>
+            <hr>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+
+
+
+
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "/base.html" %}
+{% block title %}Площадь прямоугольного треугольника{% endblock %}
+{% block body %}
+<div>
+        <div class="page">
+            <h1>Урок 1. Операторы ввода и вывода. Задача "Площадь прямоугольного треугольника"</h1>
+            <hr>
+			<p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Напишите программу, которая считывает длины двух катетов в прямоугольном треугольнике и выводит его площадь.</span>
+                <br>
+                <p><img src="/static/image/Qw.jpg"></p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат ввода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Программа получает на вход числа A и B — натуральные, не превышают 10000.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат вывода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Выведите ответ на задачу.</span>
+            </p>
+            <hr>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="145" rows="50" id="yourcode"># Числа b и h можно считывать так:
+b = int(input())
+
+# Выводите результат через print()
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div> 
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,192 @@
+body {
+	font-family: Montserrat;
+	font-style: normal;
+}
+
+.text{
+	font-weight: normal;
+	font-size: 36px;
+	line-height: 125%;
+	color: #000000;
+}
+
+#main{
+    margin-top: 100px;
+}
+
+
+header {
+    margin: 20px auto;
+    max-width: 1320px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+}
+
+ 
+.Registr{
+    margin-top: 40px;
+    margin-left: 30px;
+	width: 500px;
+	height: 350px;
+	background: #F7F7F5;
+	border-radius: 20px;
+}
+
+.Registr input{
+	padding: 0 15px;
+	outline: none;
+}
+
+.Reg_text{
+	margin-left: 130px;
+	padding-top: 20px;
+    padding-bottom: 30px;
+	width: 239px;
+	height: 30px;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 125%;
+	/* identical to box height, or 30px */
+	text-align: center;
+	color: #000000;
+}
+
+#inp_one{
+	margin-top:8px;
+	margin-left: 30px;
+	width: 440px;
+	height: 50px;
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+#inp_two{
+	margin-top:30px;
+	margin-left: 30px;
+	width: 440px;
+	height: 50px;
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+#press{
+	margin-top: 15px;
+	margin-left: 30px;
+	width: 440px;
+	height: 60px;
+	background: #24B95C;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+#press2{
+	margin-top:10px;
+	margin-left: 30px;
+	width: 440px;
+	height: 60px;
+	background: #24B95C;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+input[type=button] {
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 125%;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+input[type=text] {
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 125%;
+/* identical to box height, or 22px */
+}
+
+input[type=password] {
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 125%;
+}
+input[type="text"]::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.15);
+} 
+input[type="text"]::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.15);
+}
+input[type="password"]::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.15);
+} 
+input[type="password"]::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.15);
+}
+
+.password-control {
+	position: absolute;
+	top: 177px;
+	right: 0px;
+	margin-right: 43px;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	/*background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;*/
+	background: url("../img/open_eye.svg") 0 0 no-repeat;
+}
+.password-control.view {
+	/*background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;*/
+	background: url("../img/closed_eye.svg") 0 0 no-repeat;
+}
+
+.Enter{
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 500px;
+	height: 400px;
+	background: #F7F7F5;
+	border-radius: 20px;
+}
+
+.Enter input{
+	padding: 0 15px;
+	outline: none;
+}
+
+.En_text{
+	margin-left: 130px;
+	padding-top: 20px;
+    padding-bottom: 30px;
+	width: 239px;
+	height: 30px;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 125%;
+/* identical to box height, or 30px */
+	text-align: center;
+	color: #000000;
+}
+
+.just_text{
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 125%;
+	text-align: center;
+	text-decoration-line: underline;
+	color: #000000;
+}
+#no_profile{
+	margin-top: 23px;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 125%;
+	text-align: center;
+	color: #000000;
+}
+#l_pass{
+	margin-left: 30px;
+}

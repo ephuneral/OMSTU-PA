@@ -1,0 +1,104 @@
+{% extends "/base.html" %}
+{% block title %}Двумерные массивы{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1>Урок 9. Двумерные массивы</h1>
+            <h2>1. Обработка и вывод вложенных списков</h2>
+			<p>Часто в задачах приходится хранить прямоугольные таблицы с данными. Такие таблицы называются матрицами или двумерными массивами.
+			В языке программирования Питон таблицу можно представить в виде списка строк, каждый элемент которого является в свою очередь списком,
+			например, чисел. Например, приведём программу, в которой создаётся числовая таблица из двух строк и трех столбцов,
+			с которой производятся различные действия.</p>
+			<iframe src="https://trinket.io/embed/python/ce29ef0757" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Здесь первая строка списка <code style = "color:#22A10A">a[0]</code> является списком из чисел <code style = "color:#22A10A">[1, 2, 3]</code>. То есть <code style = "color:#22A10A">a[0][0] == 1</code>, значение <code style = "color:#22A10A">a[0][1] == 2</code>,
+			<code style = "color:#22A10A">a[0][2] == 3</code>, <code style = "color:#22A10A">a[1][0] == 4</code>, <code style = "color:#22A10A">a[1][1] == 5</code>, <code style = "color:#22A10A">a[1][2] == 6</code>.</p>
+			<p> Для обработки и вывода списка, как правило, используют два вложенных цикла.
+			Первый цикл перебирает номер строки, второй цикл бежит по элементам внутри строки.
+			Например, вывести двумерный числовой список на экран построчно, разделяя числа пробелами внутри одной строки, можно так:</p>
+			<iframe src="https://trinket.io/embed/python/6ce3ca2805" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Однажды мы уже пытались объяснить, что переменная цикла for в Питоне может перебирать не только диапазон, 
+			создаваемый с помощью функции <code style = "color:#22A10A">range()</code>, но и вообще перебирать любые элементы любой последовательности. 
+			Последовательностями в Питоне являются списки, строки, а также некоторые другие объекты, с которыми мы пока не встречались.
+			Продемонстрируем, как выводить двумерный массив, используя это удобное свойство цикла <code style = "color:#22A10A">for</code>:</p>
+			<iframe src="https://trinket.io/embed/python/fc38cd1ba7" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Естественно, для вывода одной строки можно воспользоваться методом <code style = "color:#22A10A">join()</code>:</p>
+			<iframe src="https://trinket.io/embed/python/c663418ca7" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Используем два вложенных цикла для подсчета суммы всех чисел в списке:</p>
+			<iframe src="https://trinket.io/embed/python/c23a5613bd" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Или то же самое с циклом не по индексу, а по значениям строк:</p>
+			<iframe src="https://trinket.io/embed/python/5577f93f61" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>2. Создание вложенных списков</h2>
+			<p>Пусть даны два числа: количество строк <code style = "color:#22A10A">n</code> и количество столбцов <code style = "color:#22A10A">m</code>. Необходимо создать список размером <code style = "color:#22A10A">n×m</code>, заполненный нулями.</p>
+			<p> Очевидное решение оказывается неверным:</p>
+			<iframe src="https://trinket.io/embed/python/ff04b79b5d" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом легко убедиться, если присвоить элементу <code style = "color:#22A10A">a[0][0]</code> значение <code style = "color:#22A10A">5</code>, а потом вывести значение другого элемента <code style = "color:#22A10A">a[1][0]</code> — оно тоже будет равно 5.
+			Дело в том, что <code style = "color:#22A10A">[0] * m</code> возвращает ccылку на список из m нулей. Но последующее повторение этого элемента создает список из <code style = "color:#22A10A">n</code> элементов,
+			которые являются ссылкой на один и тот же список (точно так же, как выполнение операции <code style = "color:#22A10A">b = a</code> для списков не создает новый список),
+			поэтому все строки результирующего списка на самом деле являются одной и той же строкой.</p>
+			<p> В визуализаторе обратите внимание на номер id у списков. Если у двух списков id совпадает,
+			то это на самом деле один и тот же список в памяти.</p>
+			<iframe src="https://trinket.io/embed/python/85f4d8ef5b" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Таким образом, двумерный список нельзя создавать при помощи операции повторения одной строки. Что же делать?</p>
+			<p> Первый способ: сначала создадим список из <code style = "color:#22A10A">n</code> элементов (для начала просто из <code style = "color:#22A10A">n</code> нулей).
+			Затем сделаем каждый элемент списка ссылкой на другой одномерный список из <code style = "color:#22A10A">m</code> элементов:</p>
+			<iframe src="https://trinket.io/embed/python/65f19582fb" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Другой (но похожий) способ: создать пустой список, потом <code style = "color:#22A10A">n</code> раз добавить в него новый элемент, являющийся списком-строкой:</p>
+			<iframe src="https://trinket.io/embed/python/0710aa9a5a" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Но еще проще воспользоваться генератором: создать список из <code style = "color:#22A10A">n</code> элементов, каждый из которых будет списком, состоящих из <code style = "color:#22A10A">m</code> нулей:</p>
+			<iframe src="https://trinket.io/embed/python/2b14f8d67f" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом случае каждый элемент создается независимо от остальных
+			(заново конструируется список <code style = "color:#22A10A">[0] * m</code> для заполнения очередного элемента списка), а не копируются ссылки на один и тот же список.</p>
+			<h2>3. Ввод двумерного массива</h2>
+			<p>Пусть программа получает на вход двумерный массив в виде n строк, каждая из которых содержит <code style = "color:#22A10A">m</code> чисел,
+			разделенных пробелами. Как их считать? Например, так:</p>
+			<iframe src="https://trinket.io/embed/python/e3808be112" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Или, без использования сложных вложенных вызовов функций:</p>
+			<iframe src="https://trinket.io/embed/python/9c02702af3" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Можно сделать то же самое и при помощи генератора:</p>
+			<iframe src="https://trinket.io/embed/python/da78290ad5" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>4. Пример обработки двумерного массива</h2>
+			<p>Пусть дан квадратный массив из <code style = "color:#22A10A">n</code> строк и <code style = "color:#22A10A">n</code> столбцов. Необходимо элементам, находящимся на главной диагонали,
+			проходящей из левого верхнего угла в правый нижний (то есть тем элементам <code style = "color:#22A10A">a[i][j]</code>, для которых <code style = "color:#22A10A">i==j</code>) присвоить значение <code style = "color:#22A10A">1</code>,
+			элементам, находящимся выше главной диагонали – значение 0, элементам, находящимся ниже главной диагонали – значение 2.
+			То есть необходимо получить такой массив (пример для <code style = "color:#22A10A">n==4</code>):</p>
+			<iframe src="https://trinket.io/embed/python/9c1ad46d80" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Рассмотрим несколько способов решения этой задачи. Элементы, которые лежат выше главной диагонали – это элементы <code style = "color:#22A10A">a[i][j]</code>,
+			для которых <code style = "color:#22A10A">i < j </code>, а для элементов ниже главной диагонали <code style = "color:#22A10A">i > j</code>.
+			Таким образом, мы можем сравнивать значения <code style = "color:#22A10A">i</code> и <code style = "color:#22A10A">j</code> и по ним определять значение <code style = "color:#22A10A">A[i][j]</code>. Получаем следующий алгоритм:</p>
+			<iframe src="https://trinket.io/embed/python/be73acbfa6" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Данный алгоритм плох, поскольку выполняет одну или две инструкции <code style = "color:#22A10A">if</code> для обработки каждого элемента. Если мы усложним алгоритм,
+			то мы сможем обойтись вообще без условных инструкций.</p>
+			<p> Сначала заполним главную диагональ, для чего нам понадобится один цикл:</p>
+			<iframe src="https://trinket.io/embed/python/471d31aa43" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Затем заполним значением <code style = "color:#22A10A">0</code> все элементы выше главной диагонали,
+			для чего нам понадобится в каждой из строк с номером i 
+			присвоить значение элементам <code style = "color:#22A10A">a[i][j]</code> для j=i+1, ..., n-1. Здесь нам понадобятся вложенные циклы:</p>
+			<iframe src="https://trinket.io/embed/python/7b08f1e054" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Аналогично присваиваем значение 2 элементам a[i][j] для j=0, ..., i-1:</p>
+			<iframe src="https://trinket.io/embed/python/e797da840a" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Можно также внешние циклы объединить в один и получить еще одно, более компактное решение:</p>
+			<iframe src="https://trinket.io/embed/python/b5b9173df7" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>А вот такое решение использует операцию повторения списков для построения очередной строки списка. i-я строка списка состоит из i чисел 2,
+			затем идет одно число 1, затем идет n-i-1 число 0:</p>
+			<iframe src="https://trinket.io/embed/python/8f21d74579" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>А можно заменить цикл на генератор:</p>
+			<iframe src="https://trinket.io/embed/python/4e606e7d43" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<h2>5. Вложенные генераторы двумерных массивов</h2>
+			<p>Для создания двумерных массивов можно использовать вложенные генераторы, разместив генератор списка,
+			являющегося строкой, внутри генератора всех строк. Напомним, что сделать список из n строк и m столбцов можно при помощи генератора,
+			создающего список из n элементов, каждый элемент которого является списком из m нулей:</p>
+			<iframe src="https://trinket.io/embed/python/1776169a27" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Но при этом внутренний список также можно создать при помощи, например, такого генератора:
+			[0 for j in range(m)]. Вложив один генератор в другой, получим вложенные генераторы:</p>
+			<iframe src="https://trinket.io/embed/python/fcc6a779e2" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>Но если число 0 заменить на некоторое выражение, зависящее от i (номер строки) и j (номер столбца),
+			то можно получить список, заполненный по некоторой формуле.</p>
+			<p> Например, пусть нужно задать следующий массив (для удобства добавлены дополнительные пробелы между элементами):</p>
+			<iframe src="https://trinket.io/embed/python/b65397af0b" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+			<p>В этом массиве n = 5 строк, m = 6 столбцов, и элемент в строке i и столбце j вычисляется по формуле: a[i][j] = i * j.</p>
+			<p> Для создания такого массива можно использовать генератор:</p>
+			<iframe src="https://trinket.io/embed/python/c612875210" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+        </div>
+    </div>
+{% endblock %}
+         

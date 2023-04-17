@@ -1,0 +1,41 @@
+{% extends "/base.html" %}
+{% block title %}Ход Ферзя{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+                        <h1>Урок 2. Условный оператор. Задача "Ход Ферзя"</h1>
+            <hr>
+            <p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Шахматный ферзь ходит по диагонали, горизонтали или вертикали. Даны две различные клетки</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">шахматной доски, определите, может ли ферзь попасть с первой клетки на вторую одним ходом.</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат ввода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Четыре числа от 1 до 8 каждое, задающие номер столбца и номер строки сначала для 1-й клетки, потом для 2-й</span>
+                <br>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Формат вывода</span>
+                <br>
+                <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">Выведите YES, если из первой клетки ходом короля можно попасть во вторую или NO в противном случае</span>
+            </p>
+            <div class="compile">
+                <textarea style="background-color: #FFFFFF; width: 100%;" name="my-markdown-editor" data-editor="markdown"  data-gutter="1"  cols="90" rows="50" id="yourcode">
+                </textarea>
+                <button type="button" onclick="runit()">Запустить</button>
+                <button type="button1" onclick="runit1()">Отправить на проверку</button>
+                <div class="answer-compile">
+                    <pre id="output"></pre>
+                </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,100 @@
+
+html, body {
+    height: 100%;
+    background-color: #111111;
+    word-wrap: break-word;
+}
+
+body {
+    position: relative;
+    line-height: 1.65;
+    font-family: "Montserrat", sans-serif;
+}
+
+header {
+    margin: 20px auto;
+    max-width: 1250px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    max-width: 100%;
+}
+
+header .btns {
+    display: flex;
+    align-items: center;
+}
+
+header .btns a {
+    border: 1px solid #FFFFFF;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+header .btns .btn_auth {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 26px;
+    padding: 5px 32px;
+}
+
+header .btns .btn_reg {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 27px;
+}
+
+.page {
+    margin: 76px auto;
+    max-width: 1250px;
+}
+
+.py_text {
+    float: right;
+    width: 510px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 45px;
+    margin-top: 55px;
+    margin-right: 87px;
+    color: #FFFFFF;
+}
+
+.py_text span {
+    word-wrap: normal;
+    margin-top: 73px;
+    float: right;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    width: 510px;
+}
+
+.line {
+    display: inline-block;
+    margin-bottom: 5px;
+    padding-right: 15px;
+    width: 30px;
+    height: 1px;
+    border-bottom: 1px solid white;
+}
+
+li {
+    color: rgba(255, 255, 255, 0.5);
+    padding-top: 34px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 5px;
+}
+
+.separator {
+    display: block;
+    flex: 1 1 auto;
+}

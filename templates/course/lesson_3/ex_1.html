@@ -1,0 +1,87 @@
+{% extends "/base.html" %}
+{% block title %}Вычисления{% endblock %}
+{% block body %}
+    <div style="position:relative; padding-bottom:500px;">
+        <div class="page">
+            <h1>Урок 3. Вычисления</h1>
+            <h2>1. Целочисленная арифметика</h2>
+            <p class="page-text">
+                Для целых чисел определены операции <code style = "color:#22A10A">+</code>, <code style = "color:#22A10A">-</code>, <code style = "color:#22A10A">*</code> и <code style = "color:#22A10A">**</code>. Операция деления <code style = "color:#22A10A">/</code> для целых чисел возвращает вещественное число (значение типа <code style = "color:#22A10A">float</code>). Также функция возведения в степень возвращает значение типа <code style = "color:#22A10A">float</code>, если показатель степени — отрицательное число.
+            </p>
+            <br>
+            <p class="page-text">
+                Но есть и специальная операция целочисленного деления, выполняющегося с отбрасыванием дробной части, которая обозначается // (она соответствует операции <code style = "color:#22A10A">div</code> в Паскале). Она возвращает целое число: целую часть частного. Другая близкая ей операция − это операция взятия остатка от деления, обозначаемая <code style = "color:#22A10A">%</code> (она соответствует операции <code style = "color:#22A10A">mod</code> в Паскале). Например:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/3119d923f0" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <h2>2. Действительные числа</h2>
+
+            <p class="page-text">
+                В этом разделе речь пойдет о действительных числах, имеющих тип <code style = "color:#22A10A">float</code>.
+            </p>
+            <br>
+            <p class="page-text">
+                Обратите внимание, что если вы хотите считать с клавиатуры действительное число, то результат, возращаемый функцией <code style = "color:#22A10A">input()</code> необходимо преобразовывать к типу <code style = "color:#22A10A">float</code>:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/68d8ae4af8" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p class="page-text">
+                Действительные (вещественные) числа представляются в виде чисел с десятичной точкой (а не запятой, как принято при записи десятичных дробей в русских текстах). Для записи очень больших или очень маленьких по модулю чисел используется так называемая запись «с плавающей точкой» (также называемая «научная» запись). В этом случае число представляется в виде некоторой десятичной дроби, называемой мантиссой, умноженной на целочисленную степень десяти (порядок). Например, расстояние от Земли до Солнца равно 1.496·1011, а масса молекулы воды 2.99·10-23.
+            </p>
+            <br>
+            <p class="page-text">
+                Числа с плавающей точкой в программах на языке Питон, а также при вводе и выводе записываются так: сначала пишется мантисса, затем пишется буква <code style = "color:#22A10A">e</code>, затем пишется порядок. Пробелы внутри этой записи не ставятся. Например, указанные выше константы можно записать в виде <code style = "color:#22A10A">1.496e11</code> и <code style = "color:#22A10A">2.99e-23</code>. Перед самим числом также может стоять знак минус.
+            </p>
+            <br>
+            <p class="page-text">
+                Напомним, что результатом операции деления <code style = "color:#22A10A">/</code> всегда является действительное число (<code style = "color:#22A10A">float</code>), в то время как результатом операции <code style = "color:#22A10A">//</code> является целое число (<code style = "color:#22A10A">int</code>).
+            </p>
+            <br>
+            <p class="page-text">
+                Преобразование действительных чисел к целому производится с округлением в сторону нуля, то есть <code style = "color:#22A10A">int(1.7) == 1</code>, <code style = "color:#22A10A">int(-1.7) == -1</code>.
+            </p>
+
+            <h2>3. Библиотека math</h2>
+
+            <p class="page-text">
+                Для проведения вычислений с действительными числами язык Питон содержит много дополнительных функций, собранных в библиотеку (модуль), которая называется math.
+            </p>
+            <br>
+            <p class="page-text">
+                Для использования этих функций в начале программы необходимо подключить математическую библиотеку, что делается командой:
+            </p>
+            <br>
+            <p class="page-text">
+                <code style = "color:#22A10A">import math</code>
+            </p>
+            <br>
+            <p class="page-text">
+                Например, пусть мы хотим округлять вещественные числа до ближайшего целого числа вверх. Соответствующая функция <code style = "color:#22A10A">ceil</code> от одного аргумента вызывается, например, так: <code style = "color:#22A10A">math.ceil(x)</code> (то есть явно указывается, что из модуля <code style = "color:#22A10A">math</code> используется функция <code style = "color:#22A10A">ceil</code>). Вместо числа x может быть любое число, переменная или выражение. Функция возращает значение, которое можно вывести на экран, присвоить другой переменной или использовать в выражении:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/455f3df2b4" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p class="page-text">
+                Другой способ использовать функции из библиотеки <code style = "color:#22A10A">math</code>, при котором не нужно будет при каждом использовании функции из модуля <code style = "color:#22A10A">math</code> указывать название этого модуля, выглядит так:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/06cc172863" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p class="page-text">
+                или так:
+            </p>
+
+            <iframe src="https://trinket.io/embed/python/0023552f4a" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+            <p class="page-text">
+                Ниже приведен список основных функций модуля <code style = "color:#22A10A">math</code>. Более подробное описание этих функций можно найти на сайте с документацией языка Питон.
+            </p>
+            <br>
+            <p class="page-text">
+                Некоторые из перечисленных функций (<code style = "color:#22A10A">int</code>, <code style = "color:#22A10A">round</code>, <code style = "color:#22A10A">abs</code>) являются стандартными и не требуют подключения модуля <code style = "color:#22A10A">math</code> для использования.
+            </p>
+        </div>
+    </div>
+{% endblock %}

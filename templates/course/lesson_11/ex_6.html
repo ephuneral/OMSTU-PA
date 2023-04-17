@@ -1,0 +1,23 @@
+{% extends "/base.html" %}
+{% block title %}Права доступа{% endblock %}
+{% block body %}
+    <div>
+        <div class="page">
+            <h1 style="line-height: 40px;">Урок 11. Словари. Задача "Права доступа"</h1>
+            <hr>
+			<p>
+                <span style="font: normal normal normal 26px/50px SF UI Text;
+                letter-spacing: 0.26px;">Инструкции</span>
+                <br>
+			    <span style="font: normal normal normal 22px/50px SF UI Text;
+                letter-spacing: 0.22px;">В файловую систему одного суперкомпьютера проник вирус, который сломал контроль за правами доступа к файлам. Для каждого файла известно, с какими действиями можно к нему обращаться: запись <code style = "color:#22A10A">W</code>, чтение <code style = "color:#22A10A">R</code>, запуск <code style = "color:#22A10A">X</code>. В первой строке содержится число <code style = "color:#22A10A">N</code> — количество файлов содержащихся в данной файловой системе. В следующих <code style = "color:#22A10A">N</code> строчках содержатся имена файлов и допустимых с ними операций, разделенные пробелами. Далее указано чиcло <code style = "color:#22A10A">M</code> — количество запросов к файлам. В последних <code style = "color:#22A10A">M</code> строках указан запрос вида Операция Файл. К одному и тому же файлу может быть применено любое колличество запросов. Вам требуется восстановить контроль над правами доступа к файлам (ваша программа для каждого запроса должна будет возвращать <code style = "color:#22A10A">OK</code> если над файлом выполняется допустимая операция, или же <code style = "color:#22A10A">Access denied</code>, если операция недопустима.</span> 
+                <br>
+            </p>
+            <hr>
+            <iframe src="https://trinket.io/embed/python/93deb97b44" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+            <!-- <table height = "216px", width = "1289px", border = "2px"><tr><td></td></tr> -->
+			</table>
+        </div>
+    </div>
+{% endblock %}
+         

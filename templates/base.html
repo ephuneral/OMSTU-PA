@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/jquery.min.js" type=""></script>
+    <script src="/static/js/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/js/skulpt.min.js" type="text/javascript"></script>
+    <script src="/static/js/skulpt-stdlib.js" type="text/javascript"></script>
+    <script src="/static/js/negri.js" type="text/javascript"></script>
+    <script src="/static/js/burger_menu_animation.js"></script>
+    <script src="/static/js/top_button_animation.js"></script>
+    <link rel="stylesheet" href="/static/css/style_lessons.css">
+    <link rel="icon" href="/static/image/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <title>{% block title %}       {% endblock %}</title>
+
+</head>
+
+<body>
+<header>
+
+
+    {#    <nav>#}
+    {#        <label for="touch"><span class="span1">titre</span></label>#}
+    {#        <input type="checkbox" id="touch">#}
+    {##}
+    {#        <ul class="slide1">#}
+    {#            <li><a href="#">Lorem Ipsum</a></li>#}
+    {#            <li><a href="#">Lorem Ipsum</a></li>#}
+    {#            <li><a href="#">Lorem Ipsum</a></li>#}
+    {#            <li><a href="#">Lorem Ipsum</a></li>#}
+    {#        </ul>#}
+    {##}
+    {#    </nav>#}
+
+
+    <div id="menu-container">
+        <div id="menu-wrapper">
+            <div id="hamburger-menu"><span></span><span></span><span></span></div>
+            <!-- hamburger-menu -->
+        </div>
+        <!-- menu-wrapper -->
+        <ul class="menu-list accordion">
+            <li id="nav1" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">1. Операторы ввода и вывода</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="/course/lesson_1/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_2">Сумма трёх чисел</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_3">Площадь прямоугольного треугольника</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_4">Дележ яблок</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_5">Электронные часы</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_6">Hello, %username!</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_7">Следующее и предыдущее</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_8">Парты</a></li>
+                <li><a class="head" href="/course/lesson_1/ex_9">Шнурки</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav2" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">2. Условный оператор</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_2/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_2">Минимум из двух чисел</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_3">Знак числа</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_4">Шахматная доска</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_5">Високосный год</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_6">Минимум из трех чисел</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_7">Сколько совпадает чисел</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_8">Ход ладьи</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_9">Ход короля</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_10">Ход слона</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_11">Ход ферзя</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_12">Ход коня</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_13">Шоколадка</a></li>
+                <li><a class="head" href="/course/lesson_2/ex_14">Яша плавает в бассейне</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">3. Вычисления</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_3/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_2">Последняя цифра числа</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_3">МКАД</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_4">Дробная часть</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_5">Первая цифра после точки</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_6">Конец уроков</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_7">Автопробег</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_8">Стоимость покупки</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_9">Разность времен</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_10">Улитка</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_11">Число десятков</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_12">Сумма цифр</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_13">Гипотенуза</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_14">Часы - 1</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_15">Часы - 2</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_16">Часы - 3</a></li>
+                <li><a class="head" href="/course/lesson_3/ex_17">Проценты</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">4. Цикл for</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_4/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_2">Ряд - 1</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_3">Ряд - 2</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_4">Ряд - 3</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_5">Сумма десяти чисел</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_6">Сумма N чисел</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_7">Сумма кубов</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_8">Факториал</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_9">Сумма факториалов</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_10">Количество нулей</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_11">Лесенка</a></li>
+                <li><a class="head" href="/course/lesson_4/ex_12">Потерянная карточка</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">5. Строки</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_5/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_2">Делаем срезы</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_3">Количество слов</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_4">Две половинки</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_5">Переставить два слова</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_6">Первое и последнее вхождения</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_7">Второе вхождение</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_8">Удаление фрагмента</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_9">Обращение фрагмента</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_10">Замена подстроки</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_11">Удаление символа</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_12">Замена внутри фрагмента</a></li>
+                <li><a class="head" href="/course/lesson_5/ex_13">Удалить каждый третий символ</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">6. Цикл while</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_6/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_2">Список квадратов</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_3">Минимальный делитель</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_4">Степень двойки</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_5">Утренняя пробежка</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_6">Длина последовательности</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_7">Сумма последовательности</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_8">Среднее значение последовательности</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_9">Максимум последовательности</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_10">Индекс максимума последовательности</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_11">Количество четных элементов последовательности</a>
+                </li>
+                <li><a class="head" href="/course/lesson_6/ex_12">Количество элементов, которые больше предыдущего</a>
+                </li>
+                <li><a class="head" href="/course/lesson_6/ex_13">Второй максимум</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_14">Количество элементов, равных максимуму</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_15">Числа Фибоначчи</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_16">Номер числа Фибоначчи</a></li>
+                <li><a class="head" href="/course/lesson_6/ex_17">Максимальное число идущих подряд равных элементов</a>
+                </li>
+                <li><a class="head" href="/course/lesson_6/ex_18">Стандартное отклонение</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">7. Списки</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_7/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_2">Четные индексы</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_3">Четные элементы</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_4">Больше предыдущего</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_5">Соседи одного знака</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_6">Больше своих соседей</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_7">Наибольший элемент</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_8">Шеренга</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_9">Количество различных элементов</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_10">Переставить соседние</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_11">Переставить min и max</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_12">Удалить элемент</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_13">Вставить элемент</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_14">Количество совпадающих пар</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_15">Уникальные элементы</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_16">Кегельбан</a></li>
+                <li><a class="head" href="/course/lesson_7/ex_17">Ферзи</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">8. Функции и рекурсия</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_8/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_2">Длина отрезка</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_3">Отрицательная степень</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_4">Большие буквы</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_5">Возведение в степень</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_6">Разворот последовательности</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_7">Числа Фибоначчи</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">9. Двумерные массивы</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_9/ex_1">Материал</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_2">Максимум</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_3">Снежинка</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_4">Шахматная доска</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_5">Диагонали, параллельные главной</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_6">Побочная диагональ</a></li>
+                <li><a class="head" href="/course/lesson_8/ex_7">Поменять столбцы</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">10. Множества</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_10/ex_1">Материал</a></li>
+                <li><a class="head" href="#">Количество различных чисел</a></li>
+                <li><a class="head" href="#">Количество совпадающих чисел</a></li>
+                <li><a class="head" href="#">Пересечение множеств</a></li>
+                <li><a class="head" href="#">Встречалось ли число раньше</a></li>
+                <li><a class="head" href="#">Кубики</a></li>
+                <li><a class="head" href="#">Количество слов в тексте</a></li>
+                <li><a class="head" href="#">Угадай число</a></li>
+                <li><a class="head" href="#">Угадай число - 2</a></li>
+                <li><a class="head" href="#">Полиглоты</a></li>
+                <li><a class="head" href="#">Забастовки</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">11. Словари</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_11/ex_1">Материал</a></li>
+                <li><a class="head" href="#">Номер появления слова</a></li>
+                <li><a class="head" href="#">Словарь синонимов</a></li>
+                <li><a class="head" href="#">Выборы в США</a></li>
+                <li><a class="head" href="#">Самое частое слово</a></li>
+                <li><a class="head" href="#">Права доступа</a></li>
+                <li><a class="head" href="#">Частотный анализ</a></li>
+                <li><a class="head" href="#">Страны и города</a></li>
+                <li><a class="head" href="#">Англо-латинский словарь</a></li>
+                <li><a class="head" href="#">Контрольная по ударениям</a></li>
+                <li><a class="head" href="#">Продажи</a></li>
+                <li><a class="head" href="#">Родословная: подсчет уровней</a></li>
+                <li><a class="head" href="#">Родословная: предки и потомки</a></li>
+                <li><a class="head" href="#">Родословная: LCA</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+            <li id="nav3" class="toggle accordion-toggle">
+                <span class="icon-plus"></span>
+                <a class="menu-link" href="#">12. ООП</a>
+            </li>
+            <!-- accordion-toggle -->
+            <ul class="menu-submenu accordion-content">
+                <li><a class="head" href="../lesson_12/ex_1">Материал</a></li>
+            </ul>
+            <!-- menu-submenu accordon-content-->
+        </ul>
+        <!-- menu-list accordion-->
+    </div>
+
+    <a href="/" class="logo"><img src="/static/image/logo_black.svg" alt=""></a>
+
+
+    <nav>
+        <label for="touch">
+            <div class="course">
+                <img src="{{ current_user.image_file }}" alt="" class="py_mech rounded-circle account-img">
+                <p class="d-inline-block text-truncate" ,
+                   style="max-width: 145px;">{{ current_user.surname }} {{ current_user.name }}<br>ID {{ current_user.id }}
+                </p>
+                <img src="/static/image/back.svg" alt="" class="py_mechhh">
+            </div>
+        </label>
+        <input type="checkbox" id="touch">
+        <ul class="slide">
+            <li><a href="/user_page">Профиль</a></li>
+            <li><a href="/logout">Выйти из профиля</a></li>
+        </ul>
+    </nav>
+
+</header>
+{% block body %}
+
+
+{% endblock %}
+<div ID="toTop"> ^ Наверх</div>
+</body>
+</html>
